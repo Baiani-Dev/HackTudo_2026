@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #0f172a;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: #061226;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+@layer components {
+  .primary-button {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-emeraldLocal px-5 py-3 text-sm font-black text-white shadow-sm transition hover:bg-emerald-700 focus:outline-none focus:ring-4 focus:ring-emerald-200;
+  }
+
+  .secondary-button {
+    @apply inline-flex min-h-12 items-center gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-3 text-sm font-black text-navy-900 transition hover:border-emerald-300 hover:bg-emerald-50 focus:outline-none focus:ring-4 focus:ring-emerald-100;
+  }
+
+  .icon-button {
+    @apply inline-grid h-10 w-10 place-items-center rounded-2xl border border-slate-200 bg-white text-lg font-black text-navy-900 shadow-sm transition hover:bg-emerald-50;
+  }
+
+  .input {
+    @apply w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 font-bold text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-emerald-400 focus:ring-4 focus:ring-emerald-100;
+  }
+}
+
+.hero-panel {
+  position: relative;
+}
+
+.hero-panel::after {
+  content: "";
+  position: absolute;
+  inset: auto -6rem -7rem auto;
+  width: 24rem;
+  height: 24rem;
+  border-radius: 999px;
+  border: 3rem solid rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+}
+
+.photo-card {
+  background:
+    radial-gradient(circle at 24% 34%, #274766 0 5%, transparent 6%),
+    radial-gradient(circle at 46% 28%, #f8cf97 0 5%, transparent 6%),
+    radial-gradient(circle at 72% 34%, #5b3529 0 5%, transparent 6%),
+    linear-gradient(135deg, #dbeafe, #fef3c7 46%, #bbf7d0);
+  position: relative;
+}
+
+.photo-card::before,
+.photo-card::after {
+  content: "";
+  position: absolute;
+  bottom: 16%;
+  width: 22%;
+  height: 38%;
+  border-radius: 999px 999px 20px 20px;
+  background: #0f766e;
+}
+
+.photo-card::before {
+  left: 22%;
+}
+
+.photo-card::after {
+  right: 20%;
+  background: #2563eb;
+}
+
+.sticky-note {
+  position: relative;
+}
+
+.sticky-note::before {
+  content: "";
+  position: absolute;
+  top: 0.7rem;
+  right: 2.1rem;
+  width: 0.7rem;
+  height: 1.7rem;
+  border-left: 3px solid #07152f;
+  transform: rotate(-12deg);
+}
+
+@media (max-width: 640px) {
+  .primary-button,
+  .secondary-button {
+    width: 100%;
+  }
+}
